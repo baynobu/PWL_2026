@@ -7,11 +7,15 @@ use App\Http\Controllers\PhotoController;
 Route::resource('photos', PhotoController::class);
 
 Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
+    'index',
+    'show'
 ]);
 
 Route::resource('photos', PhotoController::class)->except([
-    'create', 'store', 'update', 'destroy'
+    'create',
+    'store',
+    'update',
+    'destroy'
 ]);
 
 Route::get('/ hello', [WelcomeController::class, 'hello']);
@@ -33,3 +37,5 @@ Route::get('/user/{name?}', function ($name = null) {
 Route::get('/user/{name?}', function ($name = 'John') {
     return 'Abdul Rahman Hanif Darmawan ' . $name;
 });
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
